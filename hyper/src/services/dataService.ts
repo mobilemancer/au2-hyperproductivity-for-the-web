@@ -1,10 +1,18 @@
 import { IHttpClient } from "@aurelia/fetch-client";
 
 export class DataService {
-    constructor(@IHttpClient readonly http: IHttpClient) { }
+    constructor(@IHttpClient readonly http: IHttpClient) {
+        http.baseUrl = "https://swapi.dev/api/";
+    }
 
-    getOne(obj: objectType, id: string) {
-        this.http.fetch()
+    async getOne(resource: objectType, id: string) {
+        const resourcePath = resource + (id ? `/${id}` : '');
+        const result = await this.http.fetch(resourcePath);
+        if (!result.ok) {
+            throw "Failed to fetch resource";
+        }
+
+        return await result.json();
     }
 }
 

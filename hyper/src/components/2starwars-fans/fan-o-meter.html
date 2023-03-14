@@ -1,0 +1,41 @@
+<fieldset>
+  <legend>Rate your fandom!</legend>
+
+  <div>
+    <input
+      type="radio"
+      name="question"
+      id="jarjar"
+      name="jarjar"
+      value.bind="0"
+      checked.bind="answer"
+    />
+    <label for="jarjar">Brisky Morning Munchy.</label>
+  </div>
+
+  <div>
+    <input
+      type="radio"
+      name="question"
+      id="tauntaun"
+      name="tauntaun"
+      value.bind="1"
+      checked.bind="answer"
+    />
+    <label for="tauntaun">And I Thought They Smelled Bad On The Outside!</label>
+  </div>
+
+  <div>
+    <input
+      type="radio"
+      name="question"
+      id="grogu"
+      name="grogu"
+      value.bind="2"
+      checked.bind="answer"
+    />
+    <label for="grogu">Come On, Baby! Do The Magic Hand Thing.</label>
+  </div>
+</fieldset>
+
+<p textcontent.bind="verdict"></p>

@@ -1,0 +1,16 @@
+star-wars {
+    display: block;
+    background-color: black;
+    color: lightgrey;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+@font-face {
+    font-family: starJedi;
+    src: url(./Rebellion-oPoA.ttf) format('truetype');
+}
+
+star-wars h1 {
+    font-family: starJedi;
+}
