@@ -26,4 +26,8 @@ The service is already implemented, it is pulling data from the Star Wars API.
 
 ## 5 Templating tricks
 
+## Life cycles, router and component
+
+## Ref
+
 ## 6 Events
