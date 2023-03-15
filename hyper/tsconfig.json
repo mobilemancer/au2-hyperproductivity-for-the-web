@@ -15,6 +15,7 @@
     "src"
   ],
   "files": [
-    "src/resource.d.ts"
+    "src/resource.d.ts",
+    "./src/services/objectType.ts"
   ]
 }

@@ -1,12 +1,25 @@
 import { IHttpClient } from "@aurelia/fetch-client";
+import { DI } from "aurelia";
+
+import { objectType } from "./objectType";
 
 export class DataService {
     constructor(@IHttpClient readonly http: IHttpClient) {
         http.baseUrl = "https://swapi.dev/api/";
     }
 
-    async getOne(resource: objectType, id: string) {
+    public async getOne(resource: objectType, id: string) {
         const resourcePath = resource + (id ? `/${id}` : '');
+        const result = await this.http.fetch(resourcePath);
+        if (!result.ok) {
+            throw "Failed to fetch resource";
+        }
+
+        return await result.json();
+    }
+
+    public async search(resource: objectType, fragment: string) {
+        const resourcePath = resource + (fragment ? `/${fragment}` : '');
         const result = await this.http.fetch(resourcePath);
         if (!result.ok) {
             throw "Failed to fetch resource";
@@ -16,11 +29,5 @@ export class DataService {
     }
 }
 
-export type objectType =
-    "person"
-    | "films"
-    | "people"
-    | "planets"
-    | "species"
-    | "starships"
-    | "vehicles";
+export const IDataService = DI.createInterface<DataService>('DataService',
+    (x) => x.singleton(DataService));

@@ -1,0 +1,43 @@
+person-component .container {
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+person-component table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    color: black;
+}
+
+person-component table td,
+person-component table th {
+    text-align: center;
+    padding: 8px;
+}
+
+person-component table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+person-component table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+person-component table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+person-component table tr:nth-child(even) {
+    background: #F8F8F8;
+}
