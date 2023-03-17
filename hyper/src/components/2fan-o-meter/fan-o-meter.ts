@@ -1,10 +1,12 @@
-import { observable } from "aurelia";
+import { bindable, observable } from "aurelia";
 
 export class fanOMeter {
 
-    public verdict = "Select, and be judged!";
+    @bindable public name: string;
 
-    @observable public answer;
+    @observable public answer: string;
+
+    public verdict: string; // = "Select, and be judged!";
 
     public answerChanged(newValue, oldValue) {
         switch (newValue) {

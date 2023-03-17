@@ -1,4 +1,4 @@
-star-wars {
+star-wars-persons {
     display: block;
     background-color: black;
     color: lightgrey;
@@ -11,6 +11,6 @@ star-wars {
     src: url(./../../Rebellion-oPoA.ttf) format('truetype');
 }
 
-star-wars h1 {
+star-wars-persons h1 {
     font-family: starJedi;
 }

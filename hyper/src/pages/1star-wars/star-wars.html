@@ -1,10 +1,8 @@
-<import from="./../../components/2starwars-fans/fan-o-meter.ts"></import>
-<import
-  from="./../../components/3person-component/person-component.ts"
-></import>
+<import from="./../../components/2fan-o-meter/fan-o-meter.ts"></import>
 
 <h1>Star Wars</h1>
 
-<fan-o-meter></fan-o-meter>
+<label>What's your name?</label>
+<input type="text" value.bind="name & debounce:1000" />
 
-<person-component></person-component>
+<fan-o-meter if.bind="name" name.bind="name"></fan-o-meter>
