@@ -31,3 +31,22 @@ The service is already implemented, it is pulling data from the Star Wars API.
 ## Ref
 
 ## 6 Events
+
+
+## Does and don'ts
+
+1. Do use TypeScript
+
+2. Data bind to children
+
+3. Don't data bind between children
+
+4. Use Events for communication between remote components
+
+5. Use vanilla CSS
+
+6. Use Signals
+
+7. Debounce!
+
+8. Imports leads to Tree-shaking, global exports do not.
