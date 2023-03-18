@@ -35,18 +35,36 @@ The service is already implemented, it is pulling data from the Star Wars API.
 
 ## Does and don'ts
 
+1. Use the right tools for the job!
+
 1. Do use TypeScript
 
-2. Data bind to children
+1. Data bind to children
 
-3. Don't data bind between children
+1. Don't data bind between children
 
-4. Use Events for communication between remote components
+1. Use Events for communication between remote components
 
-5. Use vanilla CSS
+1. Use vanilla CSS
 
-6. Use Signals
+1. Use Signals
 
-7. Debounce!
+1. Debounce!
 
-8. Imports leads to Tree-shaking, global exports do not.
+1. Imports can enables Tree-shaking, global exports do not.
+
+### VS Code Plugins hard to live without
+
+1. aurelia
+
+1. Auto Rename Tag
+
+1. ESLint
+
+1. HTML CSS Support
+
+1. Prettier - Code formatter
+
+1. TabOut
+
+1. REST Client

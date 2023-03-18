@@ -1,5 +1,12 @@
 <div>
-  <input type="text" name="name" id="name" value.bind="name" />
+  <label for="name">Guess an id between 1 and 83</label>
+  <input
+    autocomplete="off"
+    type="text"
+    name="name"
+    id="name"
+    value.bind="name"
+  />
   <button click.trigger="getPerson(name)">Search</button>
 </div>
 
@@ -19,7 +26,12 @@
       </tr>
       <tr>
         <td>Films</td>
-        <td>${person.films}</td>
+        <td>
+          <!-- ${person.films} -->
+          <span repeat.for="film of person.films">
+            <a load.bind="film | url">${film | urlToName}</a>
+          </span>
+        </td>
       </tr>
       <tr>
         <td>Gender</td>

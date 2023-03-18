@@ -2,8 +2,9 @@ star-wars {
     display: block;
     background-color: black;
     color: lightgrey;
-    height: 100vh;
-    overflow-y: hidden;
+    padding: 1rem;
+    height: calc(100vh - 39px - 2 * 1rem);
+    font-size: large;
 }
 
 @font-face {
