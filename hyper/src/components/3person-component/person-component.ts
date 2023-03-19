@@ -14,4 +14,7 @@ export class PersonComponent {
         return result?.title;
     }
 
+    getFilmId(film: string) {
+        return film.substring(0, film.length - 1).split('/').pop();
+    }
 }

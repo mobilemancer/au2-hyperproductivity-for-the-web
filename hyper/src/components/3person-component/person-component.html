@@ -33,7 +33,11 @@
             <span promise.bind="getFilmTitle(film)">
               <let title.bind="null" err.bind="null"></let>
               <span pending>Fetching title...</span>
-              <span then.from-view="title" class="title">${title}</span>
+              <span then.from-view="title" class="title">
+                <a load="${'/star-wars-films(' + getFilmId(film) + ')'}">
+                  ${title}
+                </a>
+              </span>
               <span catch.from-view="err">Error?!</span>
             </span>
           </span>
