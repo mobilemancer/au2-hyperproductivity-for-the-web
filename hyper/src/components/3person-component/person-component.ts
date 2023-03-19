@@ -9,4 +9,10 @@ export class PersonComponent {
         this.person = await this.dataService.getOne("people", name);
     }
 
+    async getFilmTitle(film: string) {
+        const result = await this.dataService.getFromUrl(film);//.then((result) => result?.title);
+        console.log(result?.title);
+        return result?.title;
+    }
+
 }

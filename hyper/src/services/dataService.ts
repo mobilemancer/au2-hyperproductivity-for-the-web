@@ -9,10 +9,17 @@ export class DataService {
     }
 
     public async getOne(resource: objectType, id: string) {
-        console.log(resource);
-        console.log(id);
         const resourcePath = resource + (id ? `/${id}` : '');
         const result = await this.http.fetch(resourcePath);
+        if (!result.ok) {
+            throw "Failed to fetch resource";
+        }
+
+        return await result.json();
+    }
+
+    public async getFromUrl(url: string) {
+        const result = await this.http.fetch(url);
         if (!result.ok) {
             throw "Failed to fetch resource";
         }

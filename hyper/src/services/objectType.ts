@@ -1,6 +1,5 @@
 
 export type objectType =
-    "person" |
     "films" |
     "people" |
     "planets" |

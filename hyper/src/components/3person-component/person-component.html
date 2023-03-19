@@ -27,9 +27,13 @@
       <tr>
         <td>Films</td>
         <td>
-          <!-- ${person.films} -->
           <span repeat.for="film of person.films">
-            <a load.bind="film | url">${film | urlToName}</a>
+            <span promise.bind="getFilmTitle(film)">
+              <let data.bind="null" err.bind="null"></let>
+              <span pending>Fetching title...</span>
+              <span then.from-view="data">${data}</span>
+              <span catch.from-view="err">Error?!</span>
+            </span>
           </span>
         </td>
       </tr>
