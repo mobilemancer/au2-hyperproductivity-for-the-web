@@ -10,8 +10,7 @@ export class PersonComponent {
     }
 
     async getFilmTitle(film: string) {
-        const result = await this.dataService.getFromUrl(film);//.then((result) => result?.title);
-        console.log(result?.title);
+        const result = await this.dataService.getFromUrl(film);
         return result?.title;
     }
 
