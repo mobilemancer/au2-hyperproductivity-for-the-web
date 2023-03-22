@@ -2,22 +2,14 @@ import { Parameters } from "@aurelia/router";
 import { DataService, IDataService } from "../../services/dataService";
 
 export class StarWarsFilms {
-    constructor(@IDataService private readonly dataService: DataService) {
-        console.log("films");
-    }
 
-    // async canLoad(parameters: Parameters) {
-    //     console.log(parameters);
-    //     if (!parameters[0]) {
-    //         return false;
-    //     }
+    public film: any;
 
-    //     // this.dataService()
+    constructor(@IDataService private readonly dataService: DataService) { }
 
-    //     return true;
-    // }
-
-    public loading(parameters: Parameters): void {
+    public async loading(parameters: Parameters): Promise<void> {
         console.log(parameters);
+        this.film = await this.dataService.getOne("films", parameters[0] as string);
+        console.log(this.film);
     }
 }

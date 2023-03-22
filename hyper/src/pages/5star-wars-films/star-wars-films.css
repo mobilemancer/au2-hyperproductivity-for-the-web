@@ -1,0 +1,8 @@
+star-wars-films {
+    background-color: black;
+    color: lightgrey;
+    display: block;
+    height: 100vh;
+    overflow-y: hidden;
+    padding: 1rem;
+}
