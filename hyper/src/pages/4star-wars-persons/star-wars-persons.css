@@ -2,7 +2,7 @@ star-wars-persons {
     background-color: black;
     color: lightgrey;
     display: block;
-    height: 100vh;
+    height: calc(100vh - 39px - 2 * 1rem);
     overflow-y: hidden;
     padding: 1rem;
 }
