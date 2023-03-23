@@ -20,7 +20,9 @@
       <td>${film.producer}</td>
     </tr>
     <tr>
-      <td>Opening Crawl</td>
+      <td>
+        <a load.bind=`/intro-crawler(${film.url})`> Opening Crawl </a>
+      </td>
       <td>${film.opening_crawl}</td>
     </tr>
   </tbody>

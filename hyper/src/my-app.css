@@ -2,18 +2,21 @@ body {
   margin: 0px;
 }
 
+a {
+  text-decoration: none;
+}
+
 nav {
   background: #eee;
   display: flex;
 }
 
-a {
+nav a {
   padding: 10px;
-  text-decoration: none;
   color: black;
 }
 
-a:hover {
+nav a:hover {
   background-color: darkgray;
 }
 
@@ -69,4 +72,13 @@ table thead th:nth-child(odd) {
 
 table tr:nth-child(even) {
   background: #F8F8F8;
+}
+
+table td:nth-child(1) {
+  white-space: nowrap;
+}
+
+table a:hover {
+  background-color: transparent;
+  text-decoration: underline;
 }

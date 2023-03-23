@@ -41,7 +41,7 @@ The service is already implemented, it is pulling data from the Star Wars API.
 
 1. Data bind to children
 
-1. Don't data bind between children
+1. Don't data bind between children (if thry don't ALLWAYS share parent)
 
 1. Use Events for communication between remote components
 
