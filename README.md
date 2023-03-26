@@ -26,12 +26,15 @@ The service is already implemented, it is pulling data from the Star Wars API.
 
 ## 5 Templating tricks
 
+* Interpolation
+* Conditionals
+* Promise templating
+
 ## Life cycles, router and component
 
 ## Ref
 
 ## 6 Events
-
 
 ## Does and don'ts
 
@@ -39,13 +42,13 @@ The service is already implemented, it is pulling data from the Star Wars API.
 
 1. Do use TypeScript
 
+1. Use vanilla CSS
+
 1. Data bind to children
 
-1. Don't data bind between children (if thry don't ALLWAYS share parent)
+1. Don't data bind between children (unless they ALLWAYS share parent)
 
 1. Use Events for communication between remote components
-
-1. Use vanilla CSS
 
 1. Use Signals
 

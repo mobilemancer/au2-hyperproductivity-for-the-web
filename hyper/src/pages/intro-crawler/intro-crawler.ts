@@ -1,5 +1,6 @@
 import { DataService, IDataService } from "../../services/dataService";
 
+
 export class IntroCrawler {
     public film;
     private stars: Array<HTMLDivElement> = [];

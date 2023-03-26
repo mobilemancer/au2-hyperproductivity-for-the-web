@@ -1,0 +1,27 @@
+<h1>Style Binding</h1>
+
+<label>
+  Pink or not?
+  <input type="checkbox" name="pink" checked.bind="yestopink" />
+</label>
+<label>
+  Purple or not?
+  <input type="checkbox" name="purple" checked.bind="yestopurple" />
+</label>
+<div class="box" pink.class="yestopink" purple.class="yestopurple"></div>
+
+<br />
+
+<label>
+  Class string (try pink or purple)
+  <input type="text" value.bind="class" />
+</label>
+<div class="box ${class}"></div>
+
+<br />
+
+<label>
+  Name a Color
+  <input type="text" value.bind="color" />
+</label>
+<div class="box" background-color.style="color"></div>
