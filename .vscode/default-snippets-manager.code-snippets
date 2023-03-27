@@ -1,0 +1,35 @@
+{
+    "1-myapp": {
+        "prefix": "1-myapp",
+        "description": "1-myapp",
+        "scope": "html",
+        "body": [
+            "<import from=\"./components/person-component/person-component.ts\"></import>\r",
+            "<import from=\"./components/details-view/details-view.ts\"></import>\r",
+            "\r",
+            "<h1>Star Wars API Browser</h1>\r",
+            "\r",
+            "<div class=\"viewports\">\r",
+            "  <au-viewport name=\"main\" default=\"person-component\"></au-viewport>\r",
+            "  <au-viewport name=\"details\" default=\"details-view\"></au-viewport>\r",
+            "</div>\r",
+            ""
+        ]
+    },
+    "au2-import": {
+        "prefix": "au2-import",
+        "description": "au2-import",
+        "scope": "html",
+        "body": [
+            "<import from=\"\"></import>"
+        ]
+    },
+    "au2-register-router": {
+        "prefix": "au2-register-router",
+        "description": "au2-register-router",
+        "scope": "typescript",
+        "body": [
+            ".register(RouterConfiguration.customize({ useUrlFragmentHash: false }))"
+        ]
+    }
+}
