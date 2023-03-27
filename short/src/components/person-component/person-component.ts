@@ -9,4 +9,8 @@ export class PersonComponent {
         this.person = await this.swapiService.getById("people", id);
     }
 
+    isArray(input) {
+        return Array.isArray(input);
+    }
+
 }
