@@ -2,12 +2,9 @@
 
 <h1>Star Wars</h1>
 
-<label for="name"> What's your name?</label>
-<input
-  id="name"
-  type="text"
-  value.bind="name & debounce:1000"
-  autocomplete="off"
-/>
+<label>
+  What's your name?
+  <input type="text" value.bind="name & debounce:1000" autocomplete="off" />
+</label>
 
 <fan-o-meter if.bind="name" name.bind="name"></fan-o-meter>
