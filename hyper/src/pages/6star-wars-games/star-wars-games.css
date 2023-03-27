@@ -1,4 +1,13 @@
-star-wars-games .board {
+star-wars-games {
+    background-color: black;
+    color: lightgrey;
+    display: block;
+    height: 100vh;
+    overflow-y: hidden;
+    padding: 1rem;
+}
+
+.board {
     display: grid;
     grid-template-rows: 150px 150px 150px;
     grid-template-columns: 150px 150px 150px;
@@ -8,8 +17,7 @@ star-wars-games .board {
 }
 
 .tile {
-    background-color: purple;
-    border: 1px solid purple;
+    background-color: rgb(97, 1, 97);
 }
 
 .cross {
@@ -53,7 +61,7 @@ star-wars-games .board {
     right: 25px;
     bottom: 25px;
     border-radius: 50%;
-    border: 30px solid blue;
+    border: 30px solid blueviolet;
 }
 
 .ring:after {
