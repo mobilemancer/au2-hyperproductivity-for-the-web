@@ -1,4 +1,78 @@
 {
+    "4-create-interface": {
+        "prefix": "4-create-interface",
+        "description": "4-create-interface",
+        "scope": "typescript",
+        "body": [
+            "export const ISwapiService = DI.createInterface<SwapiService>('SwapiService',\r",
+            "    (x) => x.singleton(SwapiService));"
+        ]
+    },
+    "3-swapi-service": {
+        "prefix": "3-swapi-service",
+        "description": "3-swapi-service",
+        "scope": "typescript",
+        "body": [
+            "import { IHttpClient } from \"aurelia\";\r",
+            "\r",
+            "export class SwapiService {\r",
+            "    constructor(@IHttpClient readonly http: IHttpClient) {\r",
+            "        http.baseUrl = \"https://swapi.dev/api/\";\r",
+            "    }\r",
+            "\r",
+            "    public async getById(resource: objectType, id: string) {\r",
+            "        const resourcePath = `${resource}/${id}`;\r",
+            "        const result = await this.http.fetch(resourcePath);\r",
+            "        if (!result.ok) {\r",
+            "            throw \"Failed to fetch resource\";\r",
+            "        }\r",
+            "\r",
+            "        return await result.json();\r",
+            "    }\r",
+            "}\r",
+            "\r",
+            "export type objectType =\r",
+            "    \"films\" |\r",
+            "    \"people\" |\r",
+            "    \"planets\" |\r",
+            "    \"species\" |\r",
+            "    \"starships\" |\r",
+            "    \"vehicles\";\r",
+            ""
+        ]
+    },
+    "table": {
+        "prefix": "table",
+        "description": "table",
+        "scope": "html",
+        "body": [
+            "<table>",
+            "  <thead>",
+            "    <tr>",
+            "      <td></td>",
+            "    </tr>",
+            "  </thead>",
+            "  <tbody>",
+            "    <tr>",
+            "      <td></td>",
+            "    </tr>",
+            "  </tbody>",
+            "</table>",
+            ""
+        ]
+    },
+    "2-person-component-input": {
+        "prefix": "2-person-component-input",
+        "description": "2-person-component-input",
+        "scope": "html",
+        "body": [
+            "<div>",
+            "  <label for=\"name\">Choose an id between 1 and 83</label>",
+            "  <input autocomplete=\"off\" type=\"text\" value.bind=\"id\" />",
+            "  <button click.trigger=\"getPerson(id)\">Search</button>",
+            "</div>"
+        ]
+    },
     "1-myapp": {
         "prefix": "1-myapp",
         "description": "1-myapp",

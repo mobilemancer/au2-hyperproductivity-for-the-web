@@ -1,1 +1,13 @@
-<h1>Person Component</h1>
+<div>
+  <label for="name">Choose an id between 1 and 83</label>
+  <input autocomplete="off" type="text" value.bind="id" />
+  <button click.trigger="getPerson(id)">Search</button>
+</div>
+
+<table if.bind="person">
+  <tbody>
+    <tr>
+      <td>hello</td>
+    </tr>
+  </tbody>
+</table>
