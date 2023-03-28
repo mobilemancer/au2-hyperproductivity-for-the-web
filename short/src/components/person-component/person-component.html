@@ -1,19 +1,11 @@
-<import from="./../../resources/value-converters/keysValueConverter.ts">
-</import>
+<h2>SW Character Browser</h2>
 
-<import from="./../../resources/value-converters/capitalizeValueConverter.ts">
-</import>
-
-<import from="./../../resources/value-converters/stringifyValueConverter.ts">
-</import>
-
-<import from="./../../resources/value-converters/linkifyValueConverter.ts">
-</import>
 <div>
   <label for="name">Choose an id between 1 and 83</label>
   <input autocomplete="off" type="text" value.bind="id" />
   <button click.trigger="getPerson(id)">Search</button>
 </div>
+<br />
 
 <table if.bind="person">
   <tbody>
@@ -22,12 +14,7 @@
       <td colspan.bind="$first?'2':'1'" table-header.class="$first">
         <div if.bind="!isArray(person[attr])">${person[attr] | stringify}</div>
         <div else repeat.for="link of person[attr]">
-          <a href.bind="link" external>${link}</a>
-          <a
-            load.bind="[{ component: 'details-view', parameters: { link }, viewport: 'details-viewport' }]"
-          >
-            ${link}
-          </a>
+          <a load="../details-view(${link})@details-viewport"> ${link} </a>
         </div>
       </td>
     </tr>

@@ -1,1 +1,15 @@
-<h1>Details View</h1>
+<h2>${entity['name']??entity['title'] | capitalize}</h2>
+
+<table if.bind="entity">
+  <tbody>
+    <tr repeat.for="attr of entity | keys">
+      <td if.bind="!$first">${attr | capitalize}</td>
+      <td colspan.bind="$first?'2':'1'" table-header.class="$first">
+        <div if.bind="!isArray(entity[attr])">${entity[attr] | stringify}</div>
+        <div else repeat.for="link of entity[attr]">
+          <a load="../details-view(${link})@details-viewport"> ${link} </a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
