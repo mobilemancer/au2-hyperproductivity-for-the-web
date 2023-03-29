@@ -1,0 +1,15 @@
+<h2>Details View</h2>
+
+<table if.bind="entity">
+  <tbody>
+    <tr repeat.for="attr of entity | keys">
+      <td if.bind="!$first">${attr | capitalize}</td>
+      <td colspan.bind="$first?'2':'1'" table-header.class="$first">
+        <div if.bind="!isArray(entity[attr])">${entity[attr] | stringify}</div>
+        <div else repeat.for="link of entity[attr]">
+          <a load="../details-view(${link})@details"> ${link} </a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -328,5 +328,13 @@
         "body": [
             ".register(RouterConfiguration.customize({ useUrlFragmentHash: false }))"
         ]
+    },
+    "2-au2-register-router1": {
+        "prefix": "2-au2-register-router",
+        "description": "au2-register-router",
+        "scope": "typescript",
+        "body": [
+            ".register(RouterConfiguration.customize({ useUrlFragmentHash: false }))"
+        ]
     }
 }
