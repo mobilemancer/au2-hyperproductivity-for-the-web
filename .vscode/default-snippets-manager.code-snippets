@@ -1,124 +1,4 @@
 {
-    "4-person-component-viewmodel": {
-        "prefix": "4-person-component-viewmodel",
-        "description": "person component - view model",
-        "scope": "typescript",
-        "body": [
-            "import { ISwapiService, SwapiService } from \"../../services/swapiService\";",
-            "",
-            "export class PersonComponent {",
-            "    person;",
-            "",
-            "    constructor(@ISwapiService private readonly swapiService: SwapiService) { }",
-            "",
-            "    async getPerson(input: string) {",
-            "        this.person = await this.swapiService.getById('people', input);",
-            "    }",
-            "",
-            "    isArray(obj) {",
-            "        return Array.isArray(obj);",
-            "    }",
-            "}"
-        ]
-    },
-    "11-details-view-view": {
-        "prefix": "11-details-view-view",
-        "description": "11-details-view-view",
-        "scope": "html",
-        "body": [
-            "<h2>Details View</h2>",
-            "",
-            "<table if.bind=\"entity\">",
-            "  <tbody>",
-            "    <tr repeat.for=\"attr of entity | keys\">",
-            "      <td if.bind=\"!\\$first\">\\${attr | capitalize\\}</td>",
-            "      <td colspan.bind=\"\\$first?'2':'1'\" table-header.class=\"\\$first\">",
-            "        <div if.bind=\"!isArray(entity[attr])\">\\${entity[attr] | stringify\\}</div>",
-            "        <div else repeat.for=\"link of entity[attr]\">",
-            "          <a load=\"../details-view(\\${link\\})@details\"> \\${link\\} </a>",
-            "        </div>",
-            "      </td>",
-            "    </tr>",
-            "  </tbody>",
-            "</table>",
-            ""
-        ]
-    },
-    "10-details-view-viewmodel": {
-        "prefix": "10-details-view-viewmodel",
-        "description": "10-details-view-viewmodel",
-        "scope": "typescript",
-        "body": [
-            "import { ISwapiService, SwapiService } from \"../../services/swapiService\";",
-            "",
-            "export class DetailsView {",
-            "    public entity: object = undefined;",
-            "",
-            "    constructor(@ISwapiService private readonly swapiService: SwapiService) { }",
-            "",
-            "    async loading(params: object) {",
-            "        if (params[0]) {",
-            "            this.entity = await this.swapiService.getByUrl(params[0]);",
-            "        }",
-            "    }",
-            "",
-            "    isArray(input) {",
-            "        return Array.isArray(input);",
-            "    }",
-            "}"
-        ]
-    },
-    "8-import-registry-in-main": {
-        "prefix": "8-import-registry-in-main",
-        "description": "8-import-registry-in-main",
-        "scope": "typescript",
-        "body": [
-            "import * as globalRegistry from './globalRegistry';"
-        ]
-    },
-    "7-value-converters": {
-        "prefix": "7-value-converters",
-        "description": "7-value-converters",
-        "scope": "typescript",
-        "body": [
-            "import { valueConverter } from \"aurelia\";\r",
-            "\r",
-            "@valueConverter('capitalize')\r",
-            "export class CapitalizeValueConverter {\r",
-            "    toView(input: string): string {\r",
-            "        return input.charAt(0).toUpperCase() + input.substring(1).replace(\"_\", \" \");\r",
-            "    }\r",
-            "}\r",
-            "\r",
-            "@valueConverter('keys')\r",
-            "export class KeysValueConverter {\r",
-            "    toView(obj): string[] {\r",
-            "        const keys = Reflect.ownKeys(obj) as string[];\r",
-            "        return keys.filter(x => x !== '$observers');\r",
-            "    }\r",
-            "}\r",
-            "\r",
-            "@valueConverter('linkify')\r",
-            "export class LinkifyValueConverter {\r",
-            "    toView(input: string) {\r",
-            "        if (input.startsWith(\"https://\")) {\r",
-            "            return \"<a load='apa'></a>\";\r",
-            "        }\r",
-            "    }\r",
-            "}\r",
-            "\r",
-            "@valueConverter('stringify')\r",
-            "export class StringifyValueConverter {\r",
-            "    toView(input: string | Array<string>) {\r",
-            "        if (!Array.isArray(input)) {\r",
-            "            return input;\r",
-            "        }\r",
-            "\r",
-            "        return input.join('\\r\\n');\r",
-            "    }\r",
-            "}"
-        ]
-    },
     "css": {
         "prefix": "css",
         "description": "css",
@@ -188,46 +68,29 @@
             "}"
         ]
     },
-    "6-global-registry": {
-        "prefix": "6-global-registry",
-        "description": "6-global-registry",
-        "scope": "typescript",
-        "body": [
-            "export * from './components/details-view/details-view';",
-            "export * from \"./components/person-component/person-component\";",
-            "",
-            "export * from \"./value-converters/value-converters\";",
-            ""
-        ]
-    },
-    "5-person-table": {
-        "prefix": "5-person-table",
-        "description": "5-person-table",
+    "1-myapp": {
+        "prefix": "1-myapp",
+        "description": "1-myapp",
         "scope": "html",
         "body": [
-            "<table if.bind=\"person\">",
-            "  <tbody>",
-            "    <tr repeat.for=\"attr of person | keys\">",
-            "      <td if.bind=\"!\\$first\">\\${attr | capitalize}</td>",
-            "      <td colspan.bind=\"\\$first?'2':'1'\" table-header.class=\"$first\">",
-            "        <div if.bind=\"!isArray(person[attr])\">\\${person[attr] | stringify}</div>",
-            "        <div else repeat.for=\"link of person[attr]\">",
-            "          <a load=\"../details-view(\\${link})@details\">\\${link}</a>",
-            "        </div>",
-            "      </td>",
-            "    </tr>",
-            "  </tbody>",
-            "</table>",
+            "<import from=\"./components/person-component/person-component.ts\"></import>\r",
+            "<import from=\"./components/details-view/details-view.ts\"></import>\r",
+            "\r",
+            "<h1>Star Wars API Browser</h1>\r",
+            "\r",
+            "<div class=\"viewports\">\r",
+            "  <au-viewport name=\"main\" default=\"person-component\"></au-viewport>\r",
+            "  <au-viewport name=\"details\" default=\"details-view\"></au-viewport>\r",
+            "</div>\r",
             ""
         ]
     },
-    "au2-create-interface": {
-        "prefix": "au2-create-interface",
-        "description": "au2-create-interface",
+    "2-au2-register-router": {
+        "prefix": "2-au2-register-router",
+        "description": "au2-register-router",
         "scope": "typescript",
         "body": [
-            "export const ISwapiService = DI.createInterface<SwapiService>('SwapiService',\r",
-            "    (x) => x.singleton(SwapiService));"
+            ".register(RouterConfiguration.customize({ useUrlFragmentHash: false }))"
         ]
     },
     "3-swapi-service": {
@@ -288,21 +151,166 @@
             "</div>"
         ]
     },
-    "1-myapp": {
-        "prefix": "1-myapp",
-        "description": "1-myapp",
+    "4-person-component-viewmodel": {
+        "prefix": "4-person-component-viewmodel",
+        "description": "person component - view model",
+        "scope": "typescript",
+        "body": [
+            "import { ISwapiService, SwapiService } from \"../../services/swapiService\";",
+            "",
+            "export class PersonComponent {",
+            "    person;",
+            "",
+            "    constructor(@ISwapiService private readonly swapiService: SwapiService) { }",
+            "",
+            "    async getPerson(input: string) {",
+            "        this.person = await this.swapiService.getById('people', input);",
+            "    }",
+            "",
+            "    isArray(obj) {",
+            "        return Array.isArray(obj);",
+            "    }",
+            "}"
+        ]
+    },
+    "5-person-table": {
+        "prefix": "5-person-table",
+        "description": "5-person-table",
         "scope": "html",
         "body": [
-            "<import from=\"./components/person-component/person-component.ts\"></import>\r",
-            "<import from=\"./components/details-view/details-view.ts\"></import>\r",
-            "\r",
-            "<h1>Star Wars API Browser</h1>\r",
-            "\r",
-            "<div class=\"viewports\">\r",
-            "  <au-viewport name=\"main\" default=\"person-component\"></au-viewport>\r",
-            "  <au-viewport name=\"details\" default=\"details-view\"></au-viewport>\r",
-            "</div>\r",
+            "<table if.bind=\"person\">",
+            "  <tbody>",
+            "    <tr repeat.for=\"attr of person | keys\">",
+            "      <td if.bind=\"!\\$first\">\\${attr | capitalize}</td>",
+            "      <td colspan.bind=\"\\$first?'2':'1'\" table-header.class=\"$first\">",
+            "        <div if.bind=\"!isArray(person[attr])\">\\${person[attr] | stringify}</div>",
+            "        <div else repeat.for=\"link of person[attr]\">",
+            "          <a load=\"../details-view(\\${link})@details\">\\${link}</a>",
+            "        </div>",
+            "      </td>",
+            "    </tr>",
+            "  </tbody>",
+            "</table>",
             ""
+        ]
+    },
+    "6-global-registry": {
+        "prefix": "6-global-registry",
+        "description": "6-global-registry",
+        "scope": "typescript",
+        "body": [
+            "export * from './components/details-view/details-view';",
+            "export * from \"./components/person-component/person-component\";",
+            "",
+            "export * from \"./value-converters/value-converters\";",
+            ""
+        ]
+    },
+    "7-value-converters": {
+        "prefix": "7-value-converters",
+        "description": "7-value-converters",
+        "scope": "typescript",
+        "body": [
+            "import { valueConverter } from \"aurelia\";\r",
+            "\r",
+            "@valueConverter('capitalize')\r",
+            "export class CapitalizeValueConverter {\r",
+            "    toView(input: string): string {\r",
+            "        return input.charAt(0).toUpperCase() + input.substring(1).replace(\"_\", \" \");\r",
+            "    }\r",
+            "}\r",
+            "\r",
+            "@valueConverter('keys')\r",
+            "export class KeysValueConverter {\r",
+            "    toView(obj): string[] {\r",
+            "        const keys = Reflect.ownKeys(obj) as string[];\r",
+            "        return keys.filter(x => x !== '$observers');\r",
+            "    }\r",
+            "}\r",
+            "\r",
+            "@valueConverter('linkify')\r",
+            "export class LinkifyValueConverter {\r",
+            "    toView(input: string) {\r",
+            "        if (input.startsWith(\"https://\")) {\r",
+            "            return \"<a load='apa'></a>\";\r",
+            "        }\r",
+            "    }\r",
+            "}\r",
+            "\r",
+            "@valueConverter('stringify')\r",
+            "export class StringifyValueConverter {\r",
+            "    toView(input: string | Array<string>) {\r",
+            "        if (!Array.isArray(input)) {\r",
+            "            return input;\r",
+            "        }\r",
+            "\r",
+            "        return input.join('\\r\\n');\r",
+            "    }\r",
+            "}"
+        ]
+    },
+    "8-import-registry-in-main": {
+        "prefix": "8-import-registry-in-main",
+        "description": "8-import-registry-in-main",
+        "scope": "typescript",
+        "body": [
+            "import * as globalRegistry from './globalRegistry';"
+        ]
+    },
+    "10-details-view-viewmodel": {
+        "prefix": "10-details-view-viewmodel",
+        "description": "10-details-view-viewmodel",
+        "scope": "typescript",
+        "body": [
+            "import { ISwapiService, SwapiService } from \"../../services/swapiService\";",
+            "",
+            "export class DetailsView {",
+            "    public entity: object = undefined;",
+            "",
+            "    constructor(@ISwapiService private readonly swapiService: SwapiService) { }",
+            "",
+            "    async loading(params: object) {",
+            "        if (params[0]) {",
+            "            this.entity = await this.swapiService.getByUrl(params[0]);",
+            "        }",
+            "    }",
+            "",
+            "    isArray(input) {",
+            "        return Array.isArray(input);",
+            "    }",
+            "}"
+        ]
+    },
+    "11-details-view-view": {
+        "prefix": "11-details-view-view",
+        "description": "11-details-view-view",
+        "scope": "html",
+        "body": [
+            "<h2>Details View</h2>",
+            "",
+            "<table if.bind=\"entity\">",
+            "  <tbody>",
+            "    <tr repeat.for=\"attr of entity | keys\">",
+            "      <td if.bind=\"!\\$first\">\\${attr | capitalize\\}</td>",
+            "      <td colspan.bind=\"\\$first?'2':'1'\" table-header.class=\"\\$first\">",
+            "        <div if.bind=\"!isArray(entity[attr])\">\\${entity[attr] | stringify\\}</div>",
+            "        <div else repeat.for=\"link of entity[attr]\">",
+            "          <a load=\"../details-view(\\${link\\})@details\"> \\${link\\} </a>",
+            "        </div>",
+            "      </td>",
+            "    </tr>",
+            "  </tbody>",
+            "</table>",
+            ""
+        ]
+    },
+    "au2-create-interface": {
+        "prefix": "au2-create-interface",
+        "description": "au2-create-interface",
+        "scope": "typescript",
+        "body": [
+            "export const ISwapiService = DI.createInterface<SwapiService>('SwapiService',\r",
+            "    (x) => x.singleton(SwapiService));"
         ]
     },
     "au2-import": {
@@ -311,14 +319,6 @@
         "scope": "html",
         "body": [
             "<import from=\"\"></import>"
-        ]
-    },
-    "2-au2-register-router": {
-        "prefix": "2-au2-register-router",
-        "description": "au2-register-router",
-        "scope": "typescript",
-        "body": [
-            ".register(RouterConfiguration.customize({ useUrlFragmentHash: false }))"
         ]
     }
 }
