@@ -187,7 +187,7 @@
             "  <tbody>",
             "    <tr repeat.for=\"attr of person | keys\">",
             "      <td if.bind=\"!\\$first\">\\${attr | capitalize}</td>",
-            "      <td colspan.bind=\"\\$first?'2':'1'\" table-header.class=\"$first\">",
+            "      <td colspan.bind=\"\\$first?'2':'1'\" table-header.class=\"\\$first\">",
             "        <div if.bind=\"!isArray(person[attr])\">\\${person[attr] | stringify}</div>",
             "        <div else repeat.for=\"link of person[attr]\">",
             "          <a load=\"../details-view(\\${link})@details\">\\${link}</a>",
