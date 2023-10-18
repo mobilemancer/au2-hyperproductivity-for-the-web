@@ -1,0 +1,46 @@
+{
+  "name": "swetugggbg",
+  "description": "An Aurelia 2 client application.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "???"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "aurelia": "latest",
+    "@aurelia/router": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "@aurelia/testing": "latest",
+    "htmlhint": "^1.1.4",
+    "@aurelia/parcel-transformer": "latest",
+    "@parcel/transformer-typescript-tsc": "^2.9.3",
+    "@parcel/transformer-inline-string": "^2.9.3",
+    "parcel": "^2.9.3",
+    "@types/node": "^18.11.18",
+    "typescript": "^5.1.6",
+    "tslib": "^2.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1"
+  },
+  "scripts": {
+    "lint:js": "eslint src test --ext .js,.ts",
+    "lint:html": "htmlhint -c .htmlhintrc src",
+    "lint": "npm run lint:js && npm run lint:html",
+    "start": "parcel -p 9000",
+    "build": "parcel build --no-scope-hoist --no-source-maps"
+  },
+  "source": "index.html",
+  "targets": {
+    "default": {
+      "sourceMap": {
+        "inline": true
+      }
+    }
+  },
+  "aurelia": {
+    "hmr": false
+  }
+}
