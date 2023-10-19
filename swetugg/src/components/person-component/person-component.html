@@ -1,10 +1,22 @@
 <div>
-  <label for="name">Choose an id between 1 and 83</label>
-  <input autocomplete="off" type="text" value.bind="id" />
+  <h2>
+    <label for="character-id">Search for a character</label>
+  </h2>
+  <input
+    id="character-id"
+    autocomplete="off"
+    type="number"
+    value.bind="id"
+    placeholder="1 - 83"
+    min="1"
+    max="83"
+  />
   <button click.trigger="getPerson(id)">Search</button>
 </div>
 
-<table if.bind="person">
+<div class="spinner" if.bind="fetchingdata"></div>
+
+<table if.bind="person && !fetchingdata">
   <tbody>
     <tr repeat.for="attr of person | keys">
       <td if.bind="!$first">${attr | capitalize}</td>

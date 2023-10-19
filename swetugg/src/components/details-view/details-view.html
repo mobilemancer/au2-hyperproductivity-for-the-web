@@ -1,6 +1,8 @@
 <h2>Details View</h2>
 
-<table if.bind="entity">
+<div class="spinner" if.bind="fetchingdata"></div>
+
+<table if.bind="entity && !fetchingdata">
   <tbody>
     <tr repeat.for="attr of entity | keys">
       <td if.bind="!$first">${attr | capitalize}</td>
