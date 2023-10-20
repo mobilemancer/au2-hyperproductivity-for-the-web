@@ -33,6 +33,14 @@ table th {
   padding: 8px;
 }
 
+th {
+  color: #ffffff;
+  background: #324960;
+  font-size: large;
+  margin: auto;
+}
+
+
 table td {
   border-right: 1px solid #f8f8f8;
   font-size: 12px;
@@ -59,12 +67,6 @@ table a:hover {
   height: 100vh;
 }
 
-.table-header {
-  color: #ffffff;
-  background: #324960;
-  font-size: large;
-  margin: auto;
-}
 
 .spinner {
   margin: auto;

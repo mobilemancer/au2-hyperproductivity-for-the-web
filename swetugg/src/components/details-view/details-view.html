@@ -3,10 +3,17 @@
 <div class="spinner" if.bind="fetchingdata"></div>
 
 <table if.bind="entity && !fetchingdata">
+  <!-- <thead>
+    <tr>
+      <th colspan="2">${entity['name']}</th>
+    </tr>
+  </thead> -->
+
   <tbody>
     <tr repeat.for="attr of entity | keys">
       <td if.bind="!$first">${attr | capitalize}</td>
-      <td colspan.bind="$first?'2':'1'" table-header.class="$first">
+
+      <td if.bind="!$first">
         <div if.bind="!isArray(entity[attr])">${entity[attr] | stringify}</div>
         <div else repeat.for="link of entity[attr]">
           <a load="../details-view(${link})@details"> ${link} </a>
