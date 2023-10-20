@@ -1,17 +1,19 @@
-<div>
+<div class="header">
   <h2>
-    <label for="character-id">Search for a character</label>
+    <label for="character-id">Character Search</label>
   </h2>
-  <input
-    id="character-id"
-    autocomplete="off"
-    type="number"
-    value.bind="id"
-    placeholder="1 - 83"
-    min="1"
-    max="83"
-  />
-  <button click.trigger="getPerson(id)">Search</button>
+  <span>
+    <input
+      id="character-id"
+      autocomplete="off"
+      type="number"
+      value.bind="id"
+      placeholder="1 - 83"
+      min="1"
+      max="83"
+    />
+    <button click.trigger="getPerson(id)">Search</button>
+  </span>
 </div>
 
 <div class="spinner" if.bind="fetchingdata"></div>
