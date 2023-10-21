@@ -3,11 +3,11 @@
 <div class="spinner" if.bind="fetchingdata"></div>
 
 <table if.bind="entity && !fetchingdata">
-  <!-- <thead>
+  <thead>
     <tr>
-      <th colspan="2">${entity['name']}</th>
+      <th colspan="2">${Object.values(entity)[0]}</th>
     </tr>
-  </thead> -->
+  </thead>
 
   <tbody>
     <tr repeat.for="attr of entity | keys">
