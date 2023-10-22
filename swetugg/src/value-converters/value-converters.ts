@@ -11,26 +11,26 @@ export class CapitalizeValueConverter {
 export class KeysValueConverter {
     toView(obj): string[] {
         const keys = Reflect.ownKeys(obj) as string[];
-        return keys.filter(x => x !== 'observers');
-    }
-}
-
-@valueConverter('linkify')
-export class LinkifyValueConverter {
-    toView(input: string) {
-        if (input.startsWith("https://")) {
-            return "<a load='apa'></a>";
-        }
+        return keys.filter(x => x !== '$observers');
     }
 }
 
 @valueConverter('stringify')
 export class StringifyValueConverter {
-    toView(input: string | Array<string>) {
-        if (!Array.isArray(input)) {
+    toView(input: string) {
+        if (typeof (input) === 'number') {
             return input;
         }
 
-        return input.join('\r\n');
+        if (input.startsWith("https://")) {
+            return input;
+        }
+
+        const utcTimeRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}Z$/;
+        if (utcTimeRegex.test(input)) {
+            return new Date(input).toLocaleString();
+        }
+
+        return input;
     }
 }

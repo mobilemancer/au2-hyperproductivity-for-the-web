@@ -13,6 +13,10 @@ h2 {
 
 h1 {
   text-align: center;
+  font-size: xxx-large;
+  color: white;
+  text-shadow: -10 10 10px #9c27b0, -10 0 20px #9c27b0, -10 0 30px #9c27b0, -10 0 40px #9c27b0;
+
 }
 
 table {
@@ -36,18 +40,18 @@ table th {
 th {
   color: #ffffff;
   background: #324960;
-  font-size: large;
+  font-size: x-large;
   margin: auto;
 }
 
 
 table td {
-  border-right: 1px solid #f8f8f8;
-  font-size: 12px;
+  font-size: large;
 }
 
 table tr:nth-child(even) {
-  background: #F8F8F8;
+  background: #eeeeee;
+
 }
 
 table td:nth-child(1) {
@@ -68,13 +72,21 @@ table a:hover {
 }
 
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .spinner {
   margin: auto;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   border: 5px solid #324960;
   border-top-color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   animation: spin 1s ease-in-out infinite;
 }
 
@@ -84,22 +96,22 @@ table a:hover {
   }
 }
 
-person-component .header {
+.header {
   display: flex;
   align-items: center;
 }
 
 
-person-component h2 {
+h2 {
   display: inline-block;
   margin-right: 32px;
 }
 
-person-component input {
+input {
   font-size: 16px;
 }
 
-person-component button {
+button {
   font-size: 16px;
   font-weight: 400;
 }

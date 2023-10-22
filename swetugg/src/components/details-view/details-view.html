@@ -1,6 +1,10 @@
-<h2>Details View</h2>
+<div class="header">
+  <h2 if.bind="entity">${Object.values(entity)[0]} - Details</h2>
+</div>
 
-<div class="spinner" if.bind="fetchingdata"></div>
+<div class="container" if.bind="fetchingdata">
+  <div class="spinner"></div>
+</div>
 
 <table if.bind="entity && !fetchingdata">
   <thead>
@@ -14,7 +18,16 @@
       <td if.bind="!$first">${attr | capitalize}</td>
 
       <td if.bind="!$first">
-        <div if.bind="!isArray(entity[attr])">${entity[attr] | stringify}</div>
+        <div if.bind="!isArray(entity[attr])">
+          <template if.bind="!entity[attr].startsWith('https://')">
+            ${entity[attr] | stringify}
+          </template>
+          <template else>
+            <a load="../details-view(${entity[attr]})@details"
+              >${entity[attr]}</a
+            >
+          </template>
+        </div>
         <div else repeat.for="link of entity[attr]">
           <a load="../details-view(${link})@details"> ${link} </a>
         </div>

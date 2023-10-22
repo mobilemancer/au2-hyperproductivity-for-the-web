@@ -7,15 +7,21 @@ export class DetailsView {
     constructor(@ISwapiService private readonly swapiService: SwapiService) { }
 
     async loading(params: object) {
-        if (params[0]) {
-            this.entity = undefined;
-            this.fetchingdata = true;
-            this.entity = await this.swapiService.getByUrl(params[0]);
-            this.fetchingdata = false;
+        if (!params[0]) {
+            return;
         }
+
+        this.loadData(params[0]);
     }
 
     isArray(input) {
         return Array.isArray(input);
+    }
+
+    private async loadData(input) {
+        this.entity = undefined;
+        this.fetchingdata = true;
+        this.entity = await this.swapiService.getByUrl(input);
+        this.fetchingdata = false;
     }
 }

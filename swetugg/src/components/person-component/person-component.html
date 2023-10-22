@@ -1,11 +1,9 @@
 <div class="header">
   <h2>
-    <label for="character-id">Character Search</label>
+    <label>Character Search</label>
   </h2>
   <span>
     <input
-      id="character-id"
-      autocomplete="off"
       type="number"
       value.bind="id"
       placeholder="1 - 83"
@@ -16,7 +14,9 @@
   </span>
 </div>
 
-<div class="spinner" if.bind="fetchingdata"></div>
+<div class="container" if.bind="fetchingdata">
+  <div class="spinner"></div>
+</div>
 
 <table if.bind="person && !fetchingdata">
   <thead>
@@ -30,7 +30,14 @@
       <td if.bind="!$first">${attr | capitalize}</td>
 
       <td if.bind="!$first">
-        <div if.bind="!isArray(person[attr])">${person[attr] | stringify}</div>
+        <div if.bind="!isArray(person[attr])">
+          <template if.bind="person[attr].startsWith('https://')">
+            <a load="../details-view(${person[attr]})@details">
+              ${person[attr]}
+            </a>
+          </template>
+          <template else> ${person[attr] | stringify} </template>
+        </div>
         <div else repeat.for="link of person[attr]">
           <a load="../details-view(${link})@details">${link}</a>
         </div>
