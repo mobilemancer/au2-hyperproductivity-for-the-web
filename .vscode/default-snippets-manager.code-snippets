@@ -271,7 +271,7 @@
       "          <template else> ${person[attr] | stringify} </template>",
       "        </div>",
       "        <div else repeat.for=\"link of person[attr]\">",
-      "          <a load=\"../details-view(${link})@details\">${link}</a>",
+      "          <a load=\"../details-view(\\${link\\})@details\">\\${link\\}</a>",
       "        </div>",
       "      </td>",
       "    </tr>",
