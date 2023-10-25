@@ -1,8 +1,0 @@
-star-wars-persons {
-    background-color: black;
-    color: lightgrey;
-    display: block;
-    height: calc(100vh - 40px - 2 * 1rem);
-    overflow-y: hidden;
-    padding: 1rem;
-}
