@@ -1,0 +1,5 @@
+<div promise.bind="getFilmTitle(film.id)">
+  <div pending>Loading data...</div>
+  <div then.from-view="film">Title: ${film.title}</div>
+  <div catch.from-view="error">Error 😟</div>
+</div>
