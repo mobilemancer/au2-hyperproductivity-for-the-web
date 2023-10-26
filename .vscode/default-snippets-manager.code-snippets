@@ -310,7 +310,7 @@
       "export class KeysValueConverter {",
       "    toView(obj): string[] {",
       "        const keys = Reflect.ownKeys(obj) as string[];",
-      "        return keys.filter(x => x !== '$observers' && x !== 'created' && x !== 'edited');",
+      "        return keys.filter(x => x !== '$$observers' && x !== 'created' && x !== 'edited');",
       "    }",
       "}",
       "",
@@ -378,7 +378,7 @@
     "description": "11-details-view-view",
     "scope": "html",
     "body": [
-      "<div promise.bind=\"loadEntity(url)\">",
+      "<div <div if.bind=\"url\" promise.bind=\"loadEntity(url)\">",
       "  <div class=\"container\" pending>",
       "    <div class=\"spinner\"></div>",
       "  </div>",
