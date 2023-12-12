@@ -1,0 +1,47 @@
+<div class="header">
+  <h2>
+    <label>Character Search</label>
+  </h2>
+  <span>
+    <input
+      type="number"
+      value.bind="id"
+      placeholder="1 - 83"
+      min="1"
+      max="83"
+    />
+    <button click.trigger="getPerson(id)">Search</button>
+  </span>
+</div>
+
+<div class="container" if.bind="fetchingdata">
+  <div class="spinner"></div>
+</div>
+
+<table if.bind="person && !fetchingdata">
+  <thead>
+    <tr>
+      <th colspan="2">${person['name']}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr repeat.for="key of person | keys">
+      <td if.bind="!first">${key | capitalize}</td>
+
+      <td if.bind="!first">
+        <div if.bind="!isArray(person[key])">
+          <template if.bind="person[key].startsWith('https://')">
+            <a load="../details-view(${person[key]})@details">
+              ${person[key]}
+            </a>
+          </template>
+          <template else> ${person[key] | stringify} </template>
+        </div>
+        <div else repeat.for="link of person[key]">
+          <a load="../details-view(${link})@details">${link}</a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

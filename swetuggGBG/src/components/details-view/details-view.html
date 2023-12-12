@@ -1,0 +1,43 @@
+<div <div if.bind="url" promise.bind="loadEntity(url)">
+  <div class="container" pending>
+    <div class="spinner"></div>
+  </div>
+
+  <template then.from-view="entity">
+    <div class="header">
+      <h2>${Object.values(entity)[0]} - Details</h2>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">${Object.values(entity)[0]}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr repeat.for="attr of entity | keys">
+          <td if.bind="!first">${attr | capitalize}</td>
+
+          <td if.bind="!first">
+            <div if.bind="!isArray(entity[attr])">
+              <template if.bind="!entity[attr].startsWith('https://')">
+                ${entity[attr] | stringify}
+              </template>
+              <template else>
+                <a load="../details-view(${entity[attr]})@details"
+                  >${entity[attr]}</a
+                >
+              </template>
+            </div>
+            <div else repeat.for="link of entity[attr]">
+              <a load="../details-view(${link})@details">${link}</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
+
+  <div catch.from-view="error">error</div>
+</div>
